@@ -22,7 +22,7 @@ import streaming.service.FilmServiceCRUD;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes=SpringConfig.class)
-public class FilmDAOTest {
+public class FilmServiceTest {
     
     @Autowired
     private FilmServiceCRUD dao;

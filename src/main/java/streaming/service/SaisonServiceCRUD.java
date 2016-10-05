@@ -6,6 +6,7 @@
 package streaming.service;
 
 import java.io.Serializable;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import streaming.entity.Saison;
 
@@ -14,5 +15,9 @@ import streaming.entity.Saison;
  * @author admin
  */
 public interface SaisonServiceCRUD extends CrudRepository<Saison, Long>{
+    
+    
+    //14
+    public List<Saison> findAllBySerieIdOrderByNumSaison(long id);
     
 }
