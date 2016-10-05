@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import streaming.dao.PersonneDAO;
+import streaming.service.PersonneServiceCRUD;
 import streaming.entity.Personne;
 import streaming.spring.SpringConfig;
 
@@ -24,27 +24,39 @@ import streaming.spring.SpringConfig;
 @SpringApplicationConfiguration(classes=SpringConfig.class)
 public class PersonneTest {
     
-    
     @Autowired
-    private PersonneDAO dao;
+    private PersonneServiceCRUD service;
+    
+    @Before
+    public void effacer(){
+        
+        service.deleteAll();
+    }
+    
+    
             
-    
-    
-
-    
     @Test
     public void ajouter(){
         
         Personne pers  = new Personne();
-        pers.setNom("thomas");
-        dao.ajouter(pers);
+        pers.setNom("nombidon");
+        pers.setPrenom("prenombidon");
+        service.save(pers);
         
     }
     
     @Test
+    public void verifservice(){
+        
+        service.findOneByPrenomAndNom("prbidon", "noidon");
+    }
+    
+    
+    
+    //@Test
     public void lister(){
         
-        dao.lister();
+        service.findAll();
         
     }
     

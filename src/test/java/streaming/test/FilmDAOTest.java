@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import streaming.dao.FilmDAO;
+import streaming.entity.Film;
 import streaming.spring.SpringConfig;
+import streaming.service.FilmServiceCRUD;
 
 /**
  *
@@ -24,7 +25,7 @@ import streaming.spring.SpringConfig;
 public class FilmDAOTest {
     
     @Autowired
-    private FilmDAO dao;
+    private FilmServiceCRUD dao;
     
     
     @Test
@@ -32,4 +33,11 @@ public class FilmDAOTest {
         dao.deleteAll();
     }
     
+    @Test
+    public void ajouter2films(){
+        dao.save(new Film());
+        dao.save(new Film());
+        
+        
+    }
 }

@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import streaming.dao.PaysDAO;
+import streaming.service.PaysServiceCRUD;
 
 import streaming.entity.Film;
 import streaming.entity.Pays;
@@ -29,7 +29,7 @@ import streaming.entity.Pays;
 public class PaysDAOTest {
     
     @Autowired
-    private PaysDAO dao;
+    private PaysServiceCRUD service;
     
     
     @Test
@@ -37,13 +37,13 @@ public class PaysDAOTest {
         
         Pays p = new Pays();
         p.setNom("FRANCE");
-        dao.ajouter(p);
+        service.save(p);
         
     }
     
     @Test
     public void chercher(){
         
-        dao.rechercher(1L);
+        service.findOne(1L);
     }
 }

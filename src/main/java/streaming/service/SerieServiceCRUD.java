@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.dao;
+package streaming.service;
 
 import java.io.Serializable;
-import java.util.List;
 import org.springframework.data.repository.CrudRepository;
-import streaming.entity.Film;
+import streaming.entity.Serie;
 
 /**
  *
  * @author admin
  */
-public interface FilmDAO extends CrudRepository<Film, Long> {
-    //long est le type de la clé primaire
-    
-    public List<Film> findallbyannee(long annee);
+public interface SerieServiceCRUD extends CrudRepository<Serie,Long>{
     
 }
